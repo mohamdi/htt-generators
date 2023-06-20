@@ -1,0 +1,15 @@
+﻿<ng-container *ngIf="token?.authenticated">
+  <div class="body">
+    <app-top-bar></app-top-bar>
+    <div class="wrapper">
+      <app-side-bar></app-side-bar>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!token?.authenticated">
+  <router-outlet></router-outlet>
+</ng-container>

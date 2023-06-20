@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="grid-buttons-header">
+    <button class="button active" (click)="openForm()"><i class="fas fa-plus"></i> <span>{{'global.actions.add' | translate}}</span></button>
+    <button (click)="openForm(selectedItem)" [disabled]="!selectedItem" class="button"><i class="fas fa-edit"></i> <span>{{'global.actions.edit' | translate}}</span></button>
+    <button (click)="view()" [disabled]="!selectedItem" class="button"><i class="fas fa-eye"></i> <span>{{'global.actions.view' | translate}}</span></button>
+    <button (click)="delete(selectedItem)" [disabled]="!selectedItem" class="button"><i class="fas fa-trash"></i> <span>{{'global.actions.delete' | translate}}</span></button>
+  </div>
+  <ag-grid-angular
+    #grid
+    [columnDefs]="gridOptions.columnDefs"
+    [localeText]="localeText"
+    [frameworkComponents]="frameworkComponents"
+    [gridOptions]="gridOptions"
+    (gridReady)="gridReady($event)"
+    [rowData]="rowData"
+    class="ag-theme-alpine"
+    (selectionChanged)="onSelectionChanged($event)"
+  ></ag-grid-angular>
+</div>

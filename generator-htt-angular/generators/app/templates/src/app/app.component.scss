@@ -1,0 +1,93 @@
+.navbar {
+  background-color: #82B073;
+  .text-danger {
+    color: #fb9a93 !important
+  }
+  padding: 3px;
+}
+.navbar-brand{
+  padding: 0px;
+  margin-left: 32px;
+}
+
+.options-container{
+  position: absolute;
+  right: 150px;
+  color: white;
+}
+.options{
+  font-size: 30px;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.ngbDropdownMenu::after{
+  right: 100px;
+}
+
+.nav-link{
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-image: none;
+  background-color: transparent;
+}
+
+.body{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #F5F5F5;
+}
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100%;
+  app-side-bar{
+    width: 280px !important;
+    height: available;
+    background: #3A9069;
+    box-shadow: 0px 4px 25px 5px rgba(0, 0, 0, 0.06);
+  }
+  .content{
+    width: 80%;
+    height: 95%;
+    margin: auto;
+    background: #FFFFFF;
+    padding: 2rem;
+    overflow-y: scroll;
+  }
+}
+
+i{
+  margin-right: 2px;
+}
+
+hr{
+  height: 3px;
+  background: #E0E0E0;
+  border-color: #E0E0E0;
+}
+.footer{
+  width: 100%;
+  margin-top: -15px;
+  background-color: #FFFFFF;
+}
+
+.footer-text{
+  padding: 0px 35px 0px 35px;
+  margin-top: -16px;
+  color: #828282;
+}
+
+.username-label{
+  margin: 1rem;
+  font-weight: bold;
+}

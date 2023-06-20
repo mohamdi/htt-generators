@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <p-panelMenu id="side-menu" [model]="items"  [multiple]="false" [style]="{'width':'277px'}"></p-panelMenu>
+  <div class="logout pointer" (click)="logout()">
+    <i class="fas fa-sign-out-alt"></i>
+    <span>{{'global.logout' | translate}}</span>
+  </div>
+</div>

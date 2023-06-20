@@ -1,0 +1,24 @@
+.bullet{
+  border-radius: 17px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+  justify-content: center;
+  padding: .3rem;
+}
+
+.admin{
+  background: #E7E7E7;
+  color: #000000;
+}
+.manager{
+  background: #F8F6DB;
+  color: #C3C649;
+}
+.user{
+  background: #E4EDF1;
+  color: #52B3DD;
+}

@@ -1,0 +1,12 @@
+<div *ngIf="message && options.enableHtml" role="alert" aria-live="polite"
+     class="custom-message"
+     [class]="options.messageClass" [innerHTML]="message">
+</div>
+<div *ngIf="message && !options.enableHtml" role="alert" aria-live="polite"
+     class="custom-message"
+     [class]="options.messageClass" [attr.aria-label]="message">
+  {{ message }}
+</div>
+<div class="text-right">
+  <i class="fas fa-times color" (click)="remove()"></i>
+</div>

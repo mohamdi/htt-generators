@@ -1,0 +1,51 @@
+:host {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+  position: absolute;
+  top:7rem;
+  right: 4rem;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 1rem !important;
+  width: auto !important;
+  color: #000000 !important;
+  pointer-events: all;
+  cursor: pointer;
+  border: 1px solid #3A9069;
+  letter-spacing: 0.25px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  column-gap: 2rem;
+
+  .color{
+    color: #3A9069;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .custom-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+::ng-deep .toast-error{
+  border: 1px solid red;
+  .color{
+    color: red !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .fas{
+    color: red;
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 373.71 200">
+  <defs>
+  <style type="text/css">
+    .cls-2{fill:#77C4A1;}
+    .cls-3{fill:#3A9069;}
+  </style>
+  </defs>
+  <title>HTT</title>
+  <g id="Layer_2">
+<!--    <path class="cls-1" d="M326,0H47.73L0, 100,47.73, 200H326l47.73-100ZM260.05, 183.36H58.22L18.43,100,58.22, 16.64H310.05L349.84,100Z"/>-->
+    <polygon class="cls-2" points="299.84 100.01 260.05 183.37 58.22 183.37 18.43 100.01 58.22 16.64 260.05 16.64 299.84 100.01"/>
+    <path class="cls-3" d="M128.05,71.89v59.53H114.27V107h-27v24.41H73.46V71.89H87.23V95.36h27V71.89Z"/>
+    <path class="cls-3" d="M154.5,83.12H135.45V71.89h51.87V83.12h-19v48.3H154.5Z"/>
+    <path class="cls-3" d="M207.9,83.12H188.85V71.89h51.87V83.12H221.67v48.3H207.9Z"/>
+  </g>
+</svg>

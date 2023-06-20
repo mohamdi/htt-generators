@@ -1,0 +1,189 @@
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import '~ngx-toastr/toastr.css';
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~mdb-angular-ui-kit/assets/scss/mdb.free.scss";
+
+.pointer {
+  cursor: pointer;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.btn-primary {
+  background-color: #82B073 !important;
+  border: none;
+}
+.btn-danger {
+  background-color: #d9534f !important;
+}
+.btn-text{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  font-size: 15px;
+  padding-left: 5px;
+  color: #FFFFFF;
+}
+.ag-theme-alpine{
+  height: 90% !important;
+  --ag-header-height: 66px !important;
+  --ag-header-foreground-color: #000000 !important;
+  --ag-header-background-color: #F3F8F6 !important;
+  --ag-selected-row-background-color: rgba(235, 203, 121, 0.09);
+  --ag-range-selection-border-style: none;
+  --ag-range-selection-border-color: transparent;
+}
+
+.ag-theme-alpine .ag-row-selected{
+  border: 2px solid #EBCB79;
+  border-left: none;
+  border-right: none;
+}
+
+.ag-theme-alpine .ag-root-wrapper{
+  border: 2px solid #EAEAEA;
+  border-radius: 6px;
+}
+.ag-theme-alpine .ag-header {
+  background: #F3F8F6;
+  border-bottom: 2px solid #EAEAEA;
+}
+.ag-theme-alpine .ag-header-cell {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+  border: .1px solid #EAEAEA;
+}
+.ag-header-row-column-filter{
+  background: #FFFFFF !important;
+}
+.ag-popup{
+  position: absolute !important;
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-checked::after{
+  border: 1px solid #3A9069 !important;
+  border-radius: 5px !important;
+  color: #3A9069 !important;
+}
+.ag-theme-alpine .ag-checkbox-input-wrapper::after{
+  border: 2px solid #D9D9D9 !important;
+  border-radius: 5px !important;
+  color: #FFFFFF !important;
+}
+
+.custom-btn{
+  border-radius: 6px;
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 4px;
+  margin: 1rem;
+  text-transform: none;
+  &:hover{
+    elevation: 0;
+    box-shadow: none;
+  }
+}
+
+.btn-cancel{
+  background: #FFFFFF;
+  border-color: #3A9069 !important;
+  color: #3A9069 !important;
+}
+.btn-submit{
+  background: #3A9069 !important;
+  color: #FFFFFF !important;
+}
+.btn-delete{
+  background: #FFFFFF;
+  color: #D62C14 !important;
+  border-color: #D62C14 !important;
+}
+
+.input-group{
+  .bi-calendar3{
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    padding: .375rem 0;
+    cursor: pointer;
+    color:#6c757d;
+  }
+}
+.p-menuitem-link-active{
+  background: #77C4A1 !important;
+  border-radius: 5px !important;
+}
+
+.p-panelmenu-header-link, .p-panelmenu .p-panelmenu-content, .p-menuitem-icon, .p-menuitem-text  {
+  color: white !important;
+  padding: .3rem !important;
+  margin: .5rem;
+}
+
+.p-panelmenu .p-submenu-list{
+  margin-left: 1rem !important;
+}
+
+.grid-buttons-header{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 10px 0;
+  .button{
+    margin-right: 10px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.25px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    color: #3A9069;
+    background: #FFFFFF;
+    span{
+      margin: 0 5px;
+    }
+  }
+  .button:last-child{
+    margin-left: 100px;;
+    color: #E96505;
+  }
+
+  .button:disabled{
+    background: #FFFFFF;
+    color: #DEDEDE;
+  }
+
+  .active{
+    color: #FFFFFF;
+    border: none;
+    background: #3A9069;
+  }
+}

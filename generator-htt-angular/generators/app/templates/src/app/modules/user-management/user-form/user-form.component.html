@@ -1,0 +1,114 @@
+<div class="wrapper">
+  <h6>{{title | translate}}</h6>
+  <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row col-12">
+      <div class="form-group col-md-3 col-3 col-sm-4">
+        <label for="lastName">{{'user.form.fields.lastname' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="lastName" type="text"
+          class="form-control" formControlName="lastName"
+          [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }"
+        />
+        <span *ngIf="f.lastName.errors" class="invalid-feedback">
+          <span *ngIf="f.lastName.errors.required"> {{'global.field_required' | translate}}</span>
+          <span *ngIf="f.lastName.errors.pattern"> {{'user.form.letters_only' | translate}}</span>
+        </span>
+      </div>
+      <div class="form-group col-md-3 col-3 col-sm-4">
+        <label for="firstName">{{'user.form.fields.firstname' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="firstName" type="text"
+          class="form-control" formControlName="firstName"
+          [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors }"
+        />
+        <span *ngIf="f.firstName.errors" class="invalid-feedback">
+          <span *ngIf="f.firstName.errors.required"> {{'global.field_required' | translate}}</span>
+          <span *ngIf="f.firstName.errors.pattern"> {{'user.form.letters_only' | translate}}</span>
+        </span>
+      </div>
+      <div class="form-group col-md-3 col-3 col-sm-4">
+        <label for="username">{{'user.form.fields.username' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="username" type="text"
+          class="form-control" formControlName="username"
+          [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors }"
+        />
+        <span *ngIf="f.username.errors" class="invalid-feedback">
+          <span *ngIf="f.username.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+      <div class="form-group col-md-3 col-3 col-sm-4">
+        <label for="email">{{'user.form.fields.email' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="email"
+          type="email"
+          class="form-control" formControlName="email"
+          [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"
+        />
+        <span *ngIf="f.email.errors" class="invalid-feedback">
+          <span *ngIf="f.email.errors.required"> {{'global.field_required' | translate}}</span>
+          <span *ngIf="f.email.errors.pattern"> {{'user.form.email_pattern_error' | translate}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="row col-12">
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="role">{{'user.form.fields.role' | translate}}</label>
+        <select *ngIf="!readOnly" id="role" type="text" class="form-control" formControlName="role"
+                [ngClass]="{ 'is-invalid': f.role.touched && f.role.errors }">
+          <option *ngFor="let role of roles" [value]="role">{{'enum.role.'+role | translate}}</option>
+        </select>
+        <input
+          *ngIf="!!readOnly"
+          [readOnly]="true"
+          type="text" formControlName="role"
+          class="form-control"
+        />
+        <span *ngIf="f.role.errors" class="invalid-feedback">
+          <span *ngIf="f.role.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="direction">{{'user.form.fields.direction' | translate}}</label>
+        <select *ngIf="!readOnly" id="direction" type="text" class="form-control" formControlName="direction"
+                [ngClass]="{ 'is-invalid': f.direction.touched && f.direction.errors }">
+          <option *ngFor="let direction of directions" [value]="direction?.id">{{direction?.name}}</option>
+        </select>
+        <input
+          *ngIf="!!readOnly"
+          [readOnly]="true"
+          type="text" formControlName="direction"
+          class="form-control"
+        />
+        <span *ngIf="f.direction.errors" class="invalid-feedback">
+          <span *ngIf="f.direction.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="permission">{{'user.form.fields.permissions' | translate}}</label>
+        <select *ngIf="!readOnly" id="permission" type="text" class="form-control" formControlName="permission"
+                [ngClass]="{ 'is-invalid': f.permission.touched && f.permission.errors }">
+          <option *ngFor="let permission of permissions" [value]="permission"> {{'enum.permission.'+permission | translate }}</option>
+        </select>
+        <input
+          *ngIf="!!readOnly"
+          [readOnly]="true"
+          type="text" formControlName="permission"
+          class="form-control"
+          value="{{this.itemToUpdate?.permission}}"
+        />
+        <span *ngIf="f.permission.errors" class="invalid-feedback">
+          <span *ngIf="f.permission.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="actions">
+      <button *ngIf="!readOnly" (click)="closeModal()" type="reset" class="btn custom-btn btn-cancel">{{'global.cancel' | translate}}</button>
+      <button *ngIf="!readOnly" type="submit" [disabled]="form.invalid" class="btn custom-btn btn-submit">{{'global.validate' | translate}}</button>
+    </div>
+  </form>
+</div>

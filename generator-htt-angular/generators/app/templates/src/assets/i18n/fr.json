@@ -1,0 +1,132 @@
+{
+  "global": {
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "login": "Connexion",
+    "welcome": "Bienvenue",
+    "delete": "Supprimer",
+    "save": "Sauvegarder",
+    "validate": "Valider",
+    "yes": "Oui",
+    "no": "Non",
+    "true": "Oui",
+    "false": "Non",
+    "actions": {
+      "add": "Ajouter",
+      "edit": "Modifier",
+      "view": "Vue",
+      "delete": "Supprimer"
+    },
+    "field_required": "Ce champ est obligatoire",
+    "browse": "Browse",
+    "download": "Télécharger",
+    "logout": "Se déconnecter"
+  },
+  "login": {
+    "wrong_password": "Mot de passe incorrect",
+    "username_required": "Le nom d'utilisateur est obligatoire",
+    "password_required": "Le mot de passe est obligatoire",
+    "login_placeholder": "Saisir votre login",
+    "password_placeholder": "Saisir votre mot de passe"
+  },
+  "user": {
+    "title": "Les Utilisateurs",
+    "view": {
+      "fields": {
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "username": "Nom d'Utilisateur",
+        "role": "Role",
+        "permissions": "Droit d'Accès",
+        "direction": "Direction"
+      }
+    },
+    "form": {
+      "add_title": "Ajouter un nouvel Utilisateur",
+      "update_title": "Modifier l'Utilisateur",
+      "fields": {
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "username": "Nom d'Utilisateur",
+        "email": "Email"
+      },
+      "add_success_message": "L'Utilisateur a été ajouté",
+      "add_error_message": "Erreur",
+      "update_success_message": "L'Utilisateur a été modifié",
+      "update_error_message": "Erreur",
+      "delete_success_message": "L'Utilisateur a été supprimé",
+      "delete_error_message": "Erreur",
+      "email_pattern_error": "Verifier le format de l'email",
+      "letters_only": "Ce champs ne doit contenir que des lettres"
+    },
+    "modal_delete": {
+      "title": "Supprimer un utilisateur",
+      "message": "Cet Utilisateur sera définitivement supprimé, êtes-vous sûr de vouloir le supprimer ?"
+    }
+  },
+  "account_setup": {
+    "password": "Mot de passe",
+    "password_confirmation": "Confirmez votre mot de passe",
+    "title": "Veuillez saisir votre mot de passe",
+    "passwords_mismatch": "Les mots de passe ne sont pas identique",
+    "password_pattern_error": "Le mot de passe doit comprendre au moins une lettre majuscule, une lettre minuscule, un numéro et un chractère spéciale.",
+    "password_length_error": "Le mot de passe doit contenir [6-12] charactere.",
+    "token_error": "Une erreur est survenue, veuillez contacter le Support.",
+    "username_message": "Votre nom d'utilisateur est: "
+  },
+<% for(entity of entities) {
+  let entityName = entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, '-').toLowerCase();
+  %>
+  "<%=entityName%>": {
+  "title": "Les <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>s",
+  "view": {
+    "title": "Details de <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>",
+    "fields": {
+    <% let i=0; for(field of entity.fields) {%>
+      "<%=field.name%>": "<%=field.name%>"<%if(i<entity.fields.length-1){%>,
+<%} i++;%>
+    <%}%>
+    }
+  },
+  "form": {
+    "title_add": "Ajouter un nouveau <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>",
+    "title_update": "Modifier le <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>",
+    "title_view": "Visualiser le <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>",
+    "fields": {
+    <% let j=0; for(field of entity.fields) {%>
+    "<%=field.name%>": "<%=field.name%>"<%if(j<entity.fields.length-1){%>,
+    <%} j++;%>
+    <%}%>
+    },
+    "add_success_message": "Le <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%> a été crée",
+    "add_error_message": "Erreur",
+    "update_success_message": "Le <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%> a été modifié",
+    "update_error_message": "Erreur",
+    "delete_success_message": "Le <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%> a été supprimé",
+    "delete_error_message": "Erreur"
+  },
+  "modal_delete": {
+    "title": "Supprimer ce <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%>",
+    "message": "Ce <%=entity.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, ' ').toLowerCase();%> sera définitivement supprimé, êtes-vous sûr de vouloir le supprimer ?"
+  }
+},
+<% } %>
+  "enum": {
+    "role": {
+      "ADMIN": "Administrateur",
+      "MANAGER": "Directeur",
+      "USER": "Utilisateur"
+    },
+    <% let j=0; for(enumeration of enumerations) {
+      let enumerationName = enumeration.name.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, '_').toUpperCase();
+    %>
+    "<%=enumerationName%>":{
+      <% let i=0;
+      for(value of enumeration.values) {
+      let valueName = value.replace(/([a-z])([A-Z])/g, "$1_$2").replace(/[\s_]+/g, '_').toUpperCase();
+      %>
+      "<%=valueName%>":"<%=valueName%>"<%if(i<enumeration.values.length-1){%>,
+      <%} i++;} %>
+    }<%if(j<enumerations.length-1){%>, <%} j++;%><%}%>
+  }
+}

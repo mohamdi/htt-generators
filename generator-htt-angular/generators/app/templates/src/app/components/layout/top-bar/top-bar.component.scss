@@ -1,0 +1,17 @@
+.navbar{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: #3A9069;
+  img{
+    height: 80px;
+  }
+  .right{
+    span{
+      color: #ffffff;
+      font-weight: bold;
+    }
+  }
+}

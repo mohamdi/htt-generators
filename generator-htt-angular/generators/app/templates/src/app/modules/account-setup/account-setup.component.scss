@@ -1,0 +1,132 @@
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #F0F0F0;
+  overflow: unset;
+}
+
+.left-side{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  .yellow-ellipse{
+    background-color: #F6DF51;
+    height: 120%;
+    width: 80%;
+    border-radius: 100%;
+    position: absolute;
+    left: -40vw;
+  }
+  .green-ellipse{
+    background-color: #A7DF70;
+    height: 70%;
+    width: 70%;
+    border-radius: 100%;
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 12vw;
+    margin: 0;
+  }
+  .white-ellipse{
+    background-color: #FFFFFF;
+    height: 60%;
+    width: 60%;
+    border-radius: 100%;
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 12vw;
+    margin: 0;
+    .logo{
+      width: 250px;
+      height: 110px;
+      position: absolute;
+      top: 35%;
+      left: 17vw;
+    }
+  }
+}
+
+.right-side{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title{
+    font-weight: 300;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #868686;
+    margin-bottom: 2rem;
+  }
+  input{
+    height: calc(2.5em + 0.75rem + 2px);
+    margin-bottom: 1em;
+  }
+
+  input::placeholder {
+    color: #929699;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .buttons{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .btn-danger{
+        background: #E70033 !important;
+      }
+      .btn-primary{
+        background-color: #79AC61 !important;
+      }
+    }
+  }
+
+  button{
+    height: calc(2.5em + 0.75rem + 2px);
+    font-size: 20px;
+  }
+
+  .fa-undo{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    rotate: -90deg;
+  }
+
+}
+
+.fa-eye-slash, .fa-eye {
+  color: #868686;
+  font-size: 23px;
+}
+.username{
+  color: #79AC61;
+  font-weight: bold;
+  span{
+    color: #E70033;
+    font-weight: bold;
+  }
+}
+
+.form-input{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  i{
+    margin-left: -2.5rem;
+  }
+}

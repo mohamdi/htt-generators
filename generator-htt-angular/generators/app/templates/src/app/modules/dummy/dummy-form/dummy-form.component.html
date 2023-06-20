@@ -1,0 +1,90 @@
+<div class="wrapper">
+  <h6>{{title | translate}}</h6>
+  <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row col-12">
+    <% for(field of entity.fields) { switch(field.type) {
+      case 'String' : %>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="<%=field.name%>">{{'<%=fileName%>.form.fields.<%=field.name%>' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="<%=field.name%>" type="text"
+          class="form-control" formControlName="<%=field.name%>"
+          [ngClass]="{ 'is-invalid': f.<%=field.name%>.touched && f.<%=field.name%>.errors }"
+        />
+        <span *ngIf="f.<%=field.name%>.errors" class="invalid-feedback">
+          <span *ngIf="f.<%=field.name%>.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+      <%break;
+      case 'Boolean' : %>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="<%=field.name%>">{{'<%=fileName%>.form.fields.<%=field.name%>' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          mdbCheckbox
+          class="form-check-input"
+          type="checkbox"
+          formControlName="<%=field.name%>"
+          id="toggle-switch"
+          [checked]="true"
+          [ngClass]="{ 'is-invalid': f.<%=field.name%>.touched && f.<%=field.name%>.errors }"
+        />
+        <span *ngIf="f.<%=field.name%>.errors" class="invalid-feedback">
+          <span *ngIf="f.<%=field.name%>.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+      <%break;
+      case 'Double': case 'Long': case 'Integer' : %>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="<%=field.name%>">{{'<%=fileName%>.form.fields.<%=field.name%>' | translate}}</label>
+        <input
+          [readOnly]="!!readOnly"
+          id="<%=field.name%>" type="number"
+          inputOnlyNumber
+          [min]="0"
+          class="form-control" formControlName="<%=field.name%>"
+          [ngClass]="{ 'is-invalid': f.<%=field.name%>.touched && f.<%=field.name%>.errors }"
+        />
+        <span *ngIf="f.<%=field.name%>.errors" class="invalid-feedback">
+          <span *ngIf="f.<%=field.name%>.errors.required"> {{'global.field_required' | translate}}</span>
+        </span>
+      </div>
+        <%break;
+      case 'LocalDate': case 'LocalDateTime' : %>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="<%=field.name%>">{{'<%=fileName%>.form.fields.<%=field.name%>' | translate}}</label>
+        <div class="input-group">
+          <input id="<%=field.name%>"
+                 [readOnly]="!!readOnly"
+                 class="form-control"
+                 name="dp" onkeydown='event.preventDefault()'
+                 formControlName="<%=field.name%>"
+                 ngbDatepicker
+                 #<%=field.name%>="ngbDatepicker"
+          />
+          <i class="bi bi-calendar3" (click)="<%=field.name%>.toggle()" type="button"></i>
+          <span *ngIf="f.<%=field.name%>.errors" class="invalid-feedback">
+            <span *ngIf="f.<%=field.name%>.errors.required"> {{'global.field_required' | translate}}</span>
+          </span>
+        </div>
+      </div>
+        <%break;
+      default : %><%break;}%><%}%>
+      <% relationships.forEach(relation => {%>
+      <div class="form-group col-md-3 col-3 col-sm-6">
+        <label for="<%=field.name%>">{{'<%=fileName%>.form.fields.<%=relation.fk_name%>' | translate}}</label>
+        <select *ngIf="!readOnly" id="<%=relation.fk_name%>" class="form-control" formControlName="<%=relation.fk_name%>"
+                [ngClass]="{ 'is-invalid': f.<%=relation.fk_name%>.touched && f.<%=relation.fk_name%>.errors }">
+                <option [value]="null">null</option>
+<!--          <option *ngFor="let <%=relation.fk_name%> of <%=relation.fk_name%>s" [value]="<%=relation.fk_name%>?.id">{{<%=relation.fk_name%>?.name}}</option>-->
+        </select>
+      </div>
+      <% }); %>
+    </div>
+    <div class="actions">
+      <button *ngIf="!readOnly" (click)="closeModal()" type="reset" class="btn custom-btn btn-cancel">{{'global.cancel' | translate}}</button>
+      <button *ngIf="!readOnly" type="submit" [disabled]="form.invalid" class="btn custom-btn btn-submit">{{'global.validate' | translate}}</button>
+    </div>
+  </form>
+</div>

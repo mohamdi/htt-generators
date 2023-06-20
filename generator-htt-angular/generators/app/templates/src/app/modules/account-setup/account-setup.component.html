@@ -1,0 +1,80 @@
+<div class="login-page">
+  <div class="right-side col-md-6 col-sm-12">
+    <form class="form col-8" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h6 class="title">{{'account_setup.title' | translate}}</h6>
+      <p class="username">{{'account_setup.username_message' | translate}} <span>{{user?.username}}</span></p>
+      <div class="row mt-3">
+        <div class="form-group col-md-12">
+          <div class="form-input">
+            <input type="{{isPasswordVisible? 'text': 'password'}}"
+                   formControlName="password"
+                   class="form-control"
+                   placeholder="{{'account_setup.password' | translate}}"
+                   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
+            <i class="fas pointer " (click)="toggleIsVisible()" [ngClass]="isPasswordVisible? 'fa-eye-slash' : 'fa-eye'"></i>
+          </div>
+          <div *ngIf="f.password.touched && f.password.errors" class="text-danger">
+            <div *ngIf="f.password.errors.required">
+              {{'login.password_required' | translate}}
+            </div>
+            <div *ngIf="f.password.errors.pattern">
+              {{'account_setup.password_pattern_error' | translate}}
+            </div>
+            <div *ngIf="f.password.errors.minlength">
+              {{'account_setup.password_length_error' | translate}}
+            </div>
+            <div *ngIf="f.password.errors.maxlength">
+              {{'account_setup.password_length_error' | translate}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <div class="form-input">
+            <input
+              type="{{isPasswordVisible? 'text': 'password'}}"
+              formControlName="passwordConfirmation"
+              class="form-control"
+              placeholder="{{'account_setup.password_confirmation' | translate}}"
+              [ngClass]="{ 'is-invalid': submitted && f.passwordConfirmation.errors }"
+            />
+            <i class="fas pointer " (click)="toggleIsVisible()" [ngClass]="isPasswordVisible? 'fa-eye-slash' : 'fa-eye'"></i>
+          </div>
+          <div *ngIf="submitted && f.passwordConfirmation.errors" class="invalid-feedback">
+            <div *ngIf="f.passwordConfirmation.errors.required">
+              {{'login.password_required' | translate}}
+            </div>
+            <div *ngIf="f.passwordConfirmation.errors.pattern">
+              {{'account_setup.password_pattern_error' | translate}}
+            </div>
+            <div *ngIf="f.passwordConfirmation.errors.minlength">
+              {{'account_setup.password_length_error' | translate}}
+            </div>
+            <div *ngIf="f.passwordConfirmation.errors.maxlength">
+              {{'account_setup.password_length_error' | translate}}
+            </div>
+          </div>
+          <div *ngIf="!passwordsMatch" class="text-danger">
+            {{'account_setup.passwords_mismatch' | translate}}
+          </div>
+        </div>
+        <div class="buttons col-md-12 mt-3 mb-0">
+          <button [disabled]="loading || !passwordsMatch" class="btn btn-primary custom-btn col-8">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1"
+                ></span>
+            {{'global.validate' | translate}}
+          </button>
+          <button type="reset" [disabled]="loading" class="btn btn-danger custom-btn col-3">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1"
+                ></span>
+            <i class="fas fa-undo"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

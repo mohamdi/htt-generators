@@ -1,0 +1,53 @@
+﻿<div class="login-page">
+  <div class="right-side col-md-6 col-sm-12">
+    <form class="form col-8" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2 class="title">{{'global.login' | translate}}</h2>
+      <div class="row mt-3">
+        <div class="form-group col-md-12">
+          <input type="text"
+                 formControlName="username"
+                 class="form-control"
+                 placeholder="{{'login.login_placeholder' | translate}}"
+                 [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">
+              {{'login.username_required' | translate}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <input
+            type="{{isPasswordVisible?'text':'password'}}"
+            formControlName="password"
+            class="form-control"
+            placeholder="{{'login.password_placeholder' | translate}}"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">
+              {{'login.password_required' | translate}}
+            </div>
+          </div>
+        </div>
+        <small *ngIf="wrongPassword" class="text-danger">{{'login.wrong_password' | translate}}</small>
+        <div class="buttons col-md-12 mt-3 mb-0">
+          <button [disabled]="loading" class="btn btn-primary custom-btn col-8">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1"
+                ></span>
+            {{'global.login' | translate}}
+          </button>
+          <button type="reset" [disabled]="loading" class="btn btn-danger custom-btn col-3">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1"
+                ></span>
+            <i class="fas fa-undo"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
